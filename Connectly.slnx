@@ -4,5 +4,6 @@
     <Project Path="src/Connectly.Application/Connectly.Application.csproj" />
     <Project Path="src/Connectly.Infrastructure/Connectly.Infrastructure.csproj" />
     <Project Path="src/Connectly.Api/Connectly.Api.csproj" />
+    <Project Path="src/Connectly.Web/Connectly.Web.csproj" />
   </Folder>
 </Solution>
