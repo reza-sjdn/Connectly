@@ -1,9 +1,8 @@
 <Solution>
   <Folder Name="/src/">
-    <Project Path="src/Connectly.Domain/Connectly.Domain.csproj" />
-    <Project Path="src/Connectly.Application/Connectly.Application.csproj" />
-    <Project Path="src/Connectly.Infrastructure/Connectly.Infrastructure.csproj" />
     <Project Path="src/Connectly.Api/Connectly.Api.csproj" />
-    <Project Path="src/Connectly.Web/Connectly.Web.csproj" />
+    <Project Path="src/Connectly.Application/Connectly.Application.csproj" />
+    <Project Path="src/Connectly.Domain/Connectly.Domain.csproj" />
+    <Project Path="src/Connectly.Infrastructure/Connectly.Infrastructure.csproj" />
   </Folder>
 </Solution>
