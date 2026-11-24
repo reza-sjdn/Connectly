@@ -1,6 +1,6 @@
 using Connectly.Application.Common.Exceptions;
 using Connectly.Application.Common.Interfaces;
-using Connectly.Domain.Entities;
+using Connectly.Domain.Entities.Posts;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 

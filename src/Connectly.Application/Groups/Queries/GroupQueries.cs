@@ -5,7 +5,7 @@ using Connectly.Application.Common.Models;
 using Connectly.Application.Groups.Models;
 using Connectly.Application.Posts;
 using Connectly.Application.Posts.Models;
-using Connectly.Domain.Entities;
+using Connectly.Domain.Entities.Groups.Enums;
 using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;

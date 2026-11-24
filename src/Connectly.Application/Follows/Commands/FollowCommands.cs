@@ -1,6 +1,8 @@
 using Connectly.Application.Common.Exceptions;
 using Connectly.Application.Common.Interfaces;
-using Connectly.Domain.Entities;
+using Connectly.Domain.Entities.Follows;
+using Connectly.Domain.Entities.Notifications.Enums;
+using Connectly.Domain.Entities.UserProfiles;
 using FluentValidation;
 using FluentValidation.Results;
 using MediatR;

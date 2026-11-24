@@ -1,4 +1,6 @@
-using Connectly.Domain.Entities;
+using Connectly.Domain.Entities.Groups;
+using Connectly.Domain.Entities.Stories;
+using Connectly.Domain.Entities.UserProfiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

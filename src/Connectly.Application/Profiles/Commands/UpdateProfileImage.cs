@@ -28,7 +28,7 @@ public class UpdateProfileImageCommandHandler(
     {
         var userId = currentUser.UserId ?? throw new AppUnauthorizedException();
         var profile = await db.UserProfiles.FirstOrDefaultAsync(p => p.Id == userId, ct)
-                      ?? throw new NotFoundException(nameof(Domain.Entities.UserProfile), userId);
+                      ?? throw new NotFoundException(nameof(Domain.Entities.UserProfiles.UserProfile), userId);
 
         if (!await ImageFile.HasValidSignatureAsync(request.File.Content, ct))
             throw new ValidationException([new ValidationFailure("File", "The file is not a valid JPEG, PNG or WebP image.")]);

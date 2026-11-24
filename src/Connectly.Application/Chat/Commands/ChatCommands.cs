@@ -1,7 +1,8 @@
 using Connectly.Application.Chat.Models;
 using Connectly.Application.Common.Exceptions;
 using Connectly.Application.Common.Interfaces;
-using Connectly.Domain.Entities;
+using Connectly.Domain.Entities.Chats;
+using Connectly.Domain.Entities.UserProfiles;
 using FluentValidation;
 using FluentValidation.Results;
 using MediatR;

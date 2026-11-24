@@ -1,6 +1,6 @@
 using Connectly.Application.Auth.Models;
 using Connectly.Application.Common.Interfaces;
-using Connectly.Domain.Entities;
+using Connectly.Domain.Entities.UserProfiles;
 using FluentValidation;
 using MediatR;
 

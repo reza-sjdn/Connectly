@@ -1,5 +1,5 @@
 using Connectly.Application.Common.Models;
-using Connectly.Domain.Entities;
+using Connectly.Domain.Entities.Groups.Enums;
 
 namespace Connectly.Application.Groups.Models;
 

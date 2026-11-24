@@ -3,7 +3,7 @@ using Connectly.Application.Common.Helpers;
 using Connectly.Application.Common.Interfaces;
 using Connectly.Application.Common.Models;
 using Connectly.Application.Stories.Models;
-using Connectly.Domain.Entities;
+using Connectly.Domain.Entities.Stories;
 using FluentValidation;
 using FluentValidation.Results;
 using MediatR;

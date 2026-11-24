@@ -1,22 +1,15 @@
 using Connectly.Domain.Common;
+using Connectly.Domain.Entities.UserProfiles;
 
-namespace Connectly.Domain.Entities;
+namespace Connectly.Domain.Entities.Stories;
 
 /// <summary>A story is either a photo (ImageUrl) or text on a colored background (Text + BackgroundColor).</summary>
-public class Story : BaseEntity, IHasCreatedAt
+public class Story : MiddleBaseEntity
 {
     public Guid AuthorId { get; set; }
     public UserProfile Author { get; set; } = null!;
     public string? ImageUrl { get; set; }
     public string? Text { get; set; }
     public string? BackgroundColor { get; set; }
-    public DateTime CreatedAtUtc { get; set; }
     public DateTime ExpiresAtUtc { get; set; }
-}
-
-public class StoryView
-{
-    public Guid StoryId { get; set; }
-    public Guid ViewerId { get; set; }
-    public DateTime ViewedAtUtc { get; set; }
 }

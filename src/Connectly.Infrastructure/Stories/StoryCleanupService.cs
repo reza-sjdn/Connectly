@@ -40,7 +40,7 @@ public class StoryCleanupService(IServiceScopeFactory scopes, TimeProvider clock
         var storage = scope.ServiceProvider.GetRequiredService<IFileStorage>();
         var now = clock.GetUtcNow().UtcDateTime;
 
-        List<Domain.Entities.Story> expired;
+        List<Domain.Entities.Stories.Story> expired;
         do
         {
             expired = await db.Stories.Where(s => s.ExpiresAtUtc < now).OrderBy(s => s.ExpiresAtUtc).Take(200).ToListAsync(ct);

@@ -1,7 +1,9 @@
 using Connectly.Application.Common.Exceptions;
 using Connectly.Application.Common.Interfaces;
 using Connectly.Application.Groups.Models;
-using Connectly.Domain.Entities;
+using Connectly.Domain.Entities.Groups;
+using Connectly.Domain.Entities.Groups.Enums;
+using Connectly.Domain.Entities.Notifications.Enums;
 using FluentValidation;
 using FluentValidation.Results;
 using MediatR;
@@ -39,7 +41,10 @@ public class CreateGroupCommandHandler(IApplicationDbContext db, ICurrentUser cu
         db.Groups.Add(group);
         db.GroupMembers.Add(new GroupMember
         {
-            GroupId = group.Id, UserId = me, Role = GroupRole.Admin, Status = MembershipStatus.Active
+            GroupId = group.Id,
+            UserId = me,
+            Role = GroupRole.Admin,
+            Status = MembershipStatus.Active
         });
         await db.SaveChangesAsync(ct);
 
@@ -102,7 +107,9 @@ public class JoinGroupCommandHandler(IApplicationDbContext db, ICurrentUser curr
             var isPublic = group.Privacy == GroupPrivacy.Public;
             db.GroupMembers.Add(new GroupMember
             {
-                GroupId = group.Id, UserId = me, Role = GroupRole.Member,
+                GroupId = group.Id,
+                UserId = me,
+                Role = GroupRole.Member,
                 Status = isPublic ? MembershipStatus.Active : MembershipStatus.Pending
             });
 

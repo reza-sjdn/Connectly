@@ -30,7 +30,7 @@ public class UpdateMyProfileCommandHandler(IApplicationDbContext db, ICurrentUse
     {
         var userId = currentUser.UserId ?? throw new AppUnauthorizedException();
         var p = await db.UserProfiles.FirstOrDefaultAsync(x => x.Id == userId, ct)
-                ?? throw new NotFoundException(nameof(Domain.Entities.UserProfile), userId);
+                ?? throw new NotFoundException(nameof(Domain.Entities.UserProfiles.UserProfile), userId);
 
         p.FirstName = request.FirstName.Trim();
         p.LastName = request.LastName.Trim();

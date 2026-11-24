@@ -2,7 +2,7 @@ using Connectly.Application.Common.Exceptions;
 using Connectly.Application.Common.Interfaces;
 using Connectly.Application.Common.Models;
 using Connectly.Application.Stories.Models;
-using Connectly.Domain.Entities;
+using Connectly.Domain.Entities.Stories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,8 +26,16 @@ public class GetStoryFeedQueryHandler(IApplicationDbContext db, ICurrentUser cur
             .Take(300)
             .Select(s => new
             {
-                s.Id, s.AuthorId, s.Author.FirstName, s.Author.LastName, s.Author.AvatarUrl,
-                s.ImageUrl, s.Text, s.BackgroundColor, s.CreatedAtUtc, s.ExpiresAtUtc,
+                s.Id,
+                s.AuthorId,
+                s.Author.FirstName,
+                s.Author.LastName,
+                s.Author.AvatarUrl,
+                s.ImageUrl,
+                s.Text,
+                s.BackgroundColor,
+                s.CreatedAtUtc,
+                s.ExpiresAtUtc,
                 Seen = s.AuthorId == me || db.StoryViews.Any(v => v.StoryId == s.Id && v.ViewerId == me),
                 Views = db.StoryViews.Count(v => v.StoryId == s.Id)
             })

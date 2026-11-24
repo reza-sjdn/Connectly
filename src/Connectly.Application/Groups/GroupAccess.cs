@@ -1,7 +1,8 @@
 using Connectly.Application.Common.Exceptions;
 using Connectly.Application.Common.Interfaces;
 using Connectly.Application.Groups.Models;
-using Connectly.Domain.Entities;
+using Connectly.Domain.Entities.Groups;
+using Connectly.Domain.Entities.Groups.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace Connectly.Application.Groups;

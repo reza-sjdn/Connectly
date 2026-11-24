@@ -2,7 +2,8 @@ using Connectly.Application.Common.Helpers;
 using Connectly.Application.Common.Interfaces;
 using Connectly.Application.Common.Models;
 using Connectly.Application.Posts.Models;
-using Connectly.Domain.Entities;
+using Connectly.Domain.Entities.Groups.Enums;
+using Connectly.Domain.Entities.Posts;
 using Microsoft.EntityFrameworkCore;
 
 namespace Connectly.Application.Posts;

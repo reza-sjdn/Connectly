@@ -27,7 +27,7 @@ public class GetFollowListQueryHandler(IApplicationDbContext db, ICurrentUser cu
     public async Task<PagedResult<UserSummaryDto>> Handle(GetFollowListQuery request, CancellationToken ct)
     {
         if (!await db.UserProfiles.AnyAsync(p => p.Id == request.UserId, ct))
-            throw new NotFoundException(nameof(Domain.Entities.UserProfile), request.UserId);
+            throw new NotFoundException(nameof(Domain.Entities.UserProfiles.UserProfile), request.UserId);
 
         var me = currentUser.UserId;
         var target = request.UserId;

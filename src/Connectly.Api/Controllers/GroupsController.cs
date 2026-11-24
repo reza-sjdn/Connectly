@@ -3,7 +3,7 @@ using Connectly.Application.Groups.Commands;
 using Connectly.Application.Groups.Models;
 using Connectly.Application.Groups.Queries;
 using Connectly.Application.Posts.Models;
-using Connectly.Domain.Entities;
+using Connectly.Domain.Entities.Groups.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -3,7 +3,14 @@ using Connectly.Application.Chat.Models;
 using Connectly.Application.Groups.Models;
 using Connectly.Application.Notifications.Models;
 using Connectly.Application.Posts.Models;
-using Connectly.Domain.Entities;
+using Connectly.Domain.Entities.Chats;
+using Connectly.Domain.Entities.Follows;
+using Connectly.Domain.Entities.Groups;
+using Connectly.Domain.Entities.Notifications;
+using Connectly.Domain.Entities.Notifications.Enums;
+using Connectly.Domain.Entities.Posts;
+using Connectly.Domain.Entities.Stories;
+using Connectly.Domain.Entities.UserProfiles;
 using Microsoft.EntityFrameworkCore;
 
 namespace Connectly.Application.Common.Interfaces;

@@ -22,39 +22,7 @@ namespace Connectly.Infrastructure.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Connectly.Domain.Entities.Comment", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("AuthorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasMaxLength(2000)
-                        .HasColumnType("nvarchar(2000)");
-
-                    b.Property<DateTime>("CreatedAtUtc")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("PostId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("UpdatedAtUtc")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AuthorId");
-
-                    b.HasIndex("PostId", "CreatedAtUtc");
-
-                    b.ToTable("Comments", (string)null);
-                });
-
-            modelBuilder.Entity("Connectly.Domain.Entities.Conversation", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.Chats.Conversation", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -84,7 +52,39 @@ namespace Connectly.Infrastructure.Persistence.Migrations
                     b.ToTable("Conversations", (string)null);
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.Follow", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.Chats.Message", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<Guid>("ConversationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ReadAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("SenderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SenderId");
+
+                    b.HasIndex("ConversationId", "CreatedAtUtc");
+
+                    b.ToTable("Messages", (string)null);
+                });
+
+            modelBuilder.Entity("Connectly.Domain.Entities.Follows.Follow", b =>
                 {
                     b.Property<Guid>("FollowerId")
                         .HasColumnType("uniqueidentifier");
@@ -102,7 +102,7 @@ namespace Connectly.Infrastructure.Persistence.Migrations
                     b.ToTable("Follows", (string)null);
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.Group", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.Groups.Group", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -138,7 +138,7 @@ namespace Connectly.Infrastructure.Persistence.Migrations
                     b.ToTable("Groups", (string)null);
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.GroupMember", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.Groups.GroupMember", b =>
                 {
                     b.Property<Guid>("GroupId")
                         .HasColumnType("uniqueidentifier");
@@ -162,7 +162,7 @@ namespace Connectly.Infrastructure.Persistence.Migrations
                     b.ToTable("GroupMembers", (string)null);
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.GroupMessage", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.Groups.GroupMessage", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -191,39 +191,7 @@ namespace Connectly.Infrastructure.Persistence.Migrations
                     b.ToTable("GroupMessages", (string)null);
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.Message", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasMaxLength(2000)
-                        .HasColumnType("nvarchar(2000)");
-
-                    b.Property<Guid>("ConversationId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedAtUtc")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("ReadAtUtc")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("SenderId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SenderId");
-
-                    b.HasIndex("ConversationId", "CreatedAtUtc");
-
-                    b.ToTable("Messages", (string)null);
-                });
-
-            modelBuilder.Entity("Connectly.Domain.Entities.Notification", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.Notifications.Notification", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -265,7 +233,39 @@ namespace Connectly.Infrastructure.Persistence.Migrations
                     b.ToTable("Notifications", (string)null);
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.Post", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.Posts.Comment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AuthorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("PostId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("PostId", "CreatedAtUtc");
+
+                    b.ToTable("Comments", (string)null);
+                });
+
+            modelBuilder.Entity("Connectly.Domain.Entities.Posts.Post", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -300,7 +300,7 @@ namespace Connectly.Infrastructure.Persistence.Migrations
                     b.ToTable("Posts", (string)null);
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.PostLike", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.Posts.PostLike", b =>
                 {
                     b.Property<Guid>("PostId")
                         .HasColumnType("uniqueidentifier");
@@ -318,7 +318,7 @@ namespace Connectly.Infrastructure.Persistence.Migrations
                     b.ToTable("PostLikes", (string)null);
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.Story", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.Stories.Story", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -354,7 +354,7 @@ namespace Connectly.Infrastructure.Persistence.Migrations
                     b.ToTable("Stories", (string)null);
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.StoryView", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.Stories.StoryView", b =>
                 {
                     b.Property<Guid>("StoryId")
                         .HasColumnType("uniqueidentifier");
@@ -372,7 +372,7 @@ namespace Connectly.Infrastructure.Persistence.Migrations
                     b.ToTable("StoryViews", (string)null);
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.UserProfile", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.UserProfiles.UserProfile", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -647,107 +647,30 @@ namespace Connectly.Infrastructure.Persistence.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.Comment", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.Chats.Conversation", b =>
                 {
-                    b.HasOne("Connectly.Domain.Entities.UserProfile", "Author")
-                        .WithMany()
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Connectly.Domain.Entities.Post", "Post")
-                        .WithMany()
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Author");
-
-                    b.Navigation("Post");
-                });
-
-            modelBuilder.Entity("Connectly.Domain.Entities.Conversation", b =>
-                {
-                    b.HasOne("Connectly.Domain.Entities.UserProfile", null)
+                    b.HasOne("Connectly.Domain.Entities.UserProfiles.UserProfile", null)
                         .WithMany()
                         .HasForeignKey("UserAId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Connectly.Domain.Entities.UserProfile", null)
+                    b.HasOne("Connectly.Domain.Entities.UserProfiles.UserProfile", null)
                         .WithMany()
                         .HasForeignKey("UserBId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.Follow", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.Chats.Message", b =>
                 {
-                    b.HasOne("Connectly.Domain.Entities.UserProfile", null)
-                        .WithMany()
-                        .HasForeignKey("FolloweeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Connectly.Domain.Entities.UserProfile", null)
-                        .WithMany()
-                        .HasForeignKey("FollowerId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Connectly.Domain.Entities.Group", b =>
-                {
-                    b.HasOne("Connectly.Domain.Entities.UserProfile", null)
-                        .WithMany()
-                        .HasForeignKey("CreatedById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Connectly.Domain.Entities.GroupMember", b =>
-                {
-                    b.HasOne("Connectly.Domain.Entities.Group", null)
-                        .WithMany()
-                        .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Connectly.Domain.Entities.UserProfile", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Connectly.Domain.Entities.GroupMessage", b =>
-                {
-                    b.HasOne("Connectly.Domain.Entities.Group", null)
-                        .WithMany()
-                        .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Connectly.Domain.Entities.UserProfile", "Sender")
-                        .WithMany()
-                        .HasForeignKey("SenderId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Sender");
-                });
-
-            modelBuilder.Entity("Connectly.Domain.Entities.Message", b =>
-                {
-                    b.HasOne("Connectly.Domain.Entities.Conversation", "Conversation")
+                    b.HasOne("Connectly.Domain.Entities.Chats.Conversation", "Conversation")
                         .WithMany()
                         .HasForeignKey("ConversationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Connectly.Domain.Entities.UserProfile", null)
+                    b.HasOne("Connectly.Domain.Entities.UserProfiles.UserProfile", null)
                         .WithMany()
                         .HasForeignKey("SenderId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -756,25 +679,83 @@ namespace Connectly.Infrastructure.Persistence.Migrations
                     b.Navigation("Conversation");
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.Notification", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.Follows.Follow", b =>
                 {
-                    b.HasOne("Connectly.Domain.Entities.UserProfile", "Actor")
+                    b.HasOne("Connectly.Domain.Entities.UserProfiles.UserProfile", null)
+                        .WithMany()
+                        .HasForeignKey("FolloweeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Connectly.Domain.Entities.UserProfiles.UserProfile", null)
+                        .WithMany()
+                        .HasForeignKey("FollowerId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Connectly.Domain.Entities.Groups.Group", b =>
+                {
+                    b.HasOne("Connectly.Domain.Entities.UserProfiles.UserProfile", null)
+                        .WithMany()
+                        .HasForeignKey("CreatedById")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Connectly.Domain.Entities.Groups.GroupMember", b =>
+                {
+                    b.HasOne("Connectly.Domain.Entities.Groups.Group", null)
+                        .WithMany()
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Connectly.Domain.Entities.UserProfiles.UserProfile", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Connectly.Domain.Entities.Groups.GroupMessage", b =>
+                {
+                    b.HasOne("Connectly.Domain.Entities.Groups.Group", null)
+                        .WithMany()
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Connectly.Domain.Entities.UserProfiles.UserProfile", "Sender")
+                        .WithMany()
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Sender");
+                });
+
+            modelBuilder.Entity("Connectly.Domain.Entities.Notifications.Notification", b =>
+                {
+                    b.HasOne("Connectly.Domain.Entities.UserProfiles.UserProfile", "Actor")
                         .WithMany()
                         .HasForeignKey("ActorId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Connectly.Domain.Entities.Group", "Group")
+                    b.HasOne("Connectly.Domain.Entities.Groups.Group", "Group")
                         .WithMany()
                         .HasForeignKey("GroupId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Connectly.Domain.Entities.Post", null)
+                    b.HasOne("Connectly.Domain.Entities.Posts.Post", null)
                         .WithMany()
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Connectly.Domain.Entities.UserProfile", null)
+                    b.HasOne("Connectly.Domain.Entities.UserProfiles.UserProfile", null)
                         .WithMany()
                         .HasForeignKey("RecipientId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -785,15 +766,34 @@ namespace Connectly.Infrastructure.Persistence.Migrations
                     b.Navigation("Group");
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.Post", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.Posts.Comment", b =>
                 {
-                    b.HasOne("Connectly.Domain.Entities.UserProfile", "Author")
+                    b.HasOne("Connectly.Domain.Entities.UserProfiles.UserProfile", "Author")
                         .WithMany()
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Connectly.Domain.Entities.Group", "Group")
+                    b.HasOne("Connectly.Domain.Entities.Posts.Post", "Post")
+                        .WithMany()
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+
+                    b.Navigation("Post");
+                });
+
+            modelBuilder.Entity("Connectly.Domain.Entities.Posts.Post", b =>
+                {
+                    b.HasOne("Connectly.Domain.Entities.UserProfiles.UserProfile", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Connectly.Domain.Entities.Groups.Group", "Group")
                         .WithMany()
                         .HasForeignKey("GroupId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -803,24 +803,24 @@ namespace Connectly.Infrastructure.Persistence.Migrations
                     b.Navigation("Group");
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.PostLike", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.Posts.PostLike", b =>
                 {
-                    b.HasOne("Connectly.Domain.Entities.Post", null)
+                    b.HasOne("Connectly.Domain.Entities.Posts.Post", null)
                         .WithMany()
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Connectly.Domain.Entities.UserProfile", null)
+                    b.HasOne("Connectly.Domain.Entities.UserProfiles.UserProfile", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.Story", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.Stories.Story", b =>
                 {
-                    b.HasOne("Connectly.Domain.Entities.UserProfile", "Author")
+                    b.HasOne("Connectly.Domain.Entities.UserProfiles.UserProfile", "Author")
                         .WithMany()
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -829,26 +829,26 @@ namespace Connectly.Infrastructure.Persistence.Migrations
                     b.Navigation("Author");
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.StoryView", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.Stories.StoryView", b =>
                 {
-                    b.HasOne("Connectly.Domain.Entities.Story", null)
+                    b.HasOne("Connectly.Domain.Entities.Stories.Story", null)
                         .WithMany()
                         .HasForeignKey("StoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Connectly.Domain.Entities.UserProfile", null)
+                    b.HasOne("Connectly.Domain.Entities.UserProfiles.UserProfile", null)
                         .WithMany()
                         .HasForeignKey("ViewerId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Connectly.Domain.Entities.UserProfile", b =>
+            modelBuilder.Entity("Connectly.Domain.Entities.UserProfiles.UserProfile", b =>
                 {
                     b.HasOne("Connectly.Infrastructure.Identity.ApplicationUser", null)
                         .WithOne()
-                        .HasForeignKey("Connectly.Domain.Entities.UserProfile", "Id")
+                        .HasForeignKey("Connectly.Domain.Entities.UserProfiles.UserProfile", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -1,17 +1,11 @@
 using Connectly.Domain.Common;
+using Connectly.Domain.Entities.Groups;
+using Connectly.Domain.Entities.Notifications.Enums;
+using Connectly.Domain.Entities.UserProfiles;
 
-namespace Connectly.Domain.Entities;
+namespace Connectly.Domain.Entities.Notifications;
 
-public enum NotificationType
-{
-    NewFollower = 1,
-    PostLiked = 2,
-    PostCommented = 3,
-    GroupJoinRequested = 4,
-    GroupRequestApproved = 5
-}
-
-public class Notification : BaseEntity, IHasCreatedAt
+public class Notification : MiddleBaseEntity
 {
     public Guid RecipientId { get; set; }
     public Guid ActorId { get; set; }
@@ -21,5 +15,4 @@ public class Notification : BaseEntity, IHasCreatedAt
     public Guid? GroupId { get; set; }
     public Group? Group { get; set; }
     public bool IsRead { get; set; }
-    public DateTime CreatedAtUtc { get; set; }
 }

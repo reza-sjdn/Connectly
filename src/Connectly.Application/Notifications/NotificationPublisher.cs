@@ -1,7 +1,8 @@
 using Connectly.Application.Common.Interfaces;
 using Connectly.Application.Common.Models;
 using Connectly.Application.Notifications.Models;
-using Connectly.Domain.Entities;
+using Connectly.Domain.Entities.Notifications;
+using Connectly.Domain.Entities.Notifications.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -44,7 +45,11 @@ public class NotificationPublisher(
 
             var entity = new Notification
             {
-                RecipientId = recipientId, ActorId = actorId, Type = type, PostId = postId, GroupId = groupId
+                RecipientId = recipientId,
+                ActorId = actorId,
+                Type = type,
+                PostId = postId,
+                GroupId = groupId
             };
             db.Notifications.Add(entity);
             await db.SaveChangesAsync(ct);

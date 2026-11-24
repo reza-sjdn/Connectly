@@ -1,6 +1,6 @@
 using Connectly.Domain.Common;
 
-namespace Connectly.Domain.Entities;
+namespace Connectly.Domain.Entities.UserProfiles;
 
 /// <summary>Public-facing profile. Shares its primary key with the Identity user.</summary>
 public class UserProfile : AuditableEntity

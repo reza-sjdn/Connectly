@@ -24,6 +24,6 @@ public class GetMyProfileQueryHandler(IApplicationDbContext db, ICurrentUser cur
             .Where(p => p.Id == userId)
             .Select(p => new ProfileDto(p.Id, p.FirstName, p.LastName, p.Bio, p.AvatarUrl, p.CoverUrl, p.DateOfBirth, p.CreatedAtUtc))
             .FirstOrDefaultAsync(ct)
-            ?? throw new NotFoundException(nameof(Domain.Entities.UserProfile), userId);
+            ?? throw new NotFoundException(nameof(Domain.Entities.UserProfiles.UserProfile), userId);
     }
 }

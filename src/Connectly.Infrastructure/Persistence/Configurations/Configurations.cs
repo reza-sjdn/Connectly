@@ -1,4 +1,4 @@
-using Connectly.Domain.Entities;
+using Connectly.Domain.Entities.UserProfiles;
 using Connectly.Infrastructure.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

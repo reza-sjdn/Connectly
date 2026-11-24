@@ -1,6 +1,12 @@
 using Connectly.Application.Common.Interfaces;
 using Connectly.Domain.Common;
-using Connectly.Domain.Entities;
+using Connectly.Domain.Entities.Chats;
+using Connectly.Domain.Entities.Follows;
+using Connectly.Domain.Entities.Groups;
+using Connectly.Domain.Entities.Notifications;
+using Connectly.Domain.Entities.Posts;
+using Connectly.Domain.Entities.Stories;
+using Connectly.Domain.Entities.UserProfiles;
 using Connectly.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -44,7 +50,11 @@ public class AppDbContext(DbContextOptions<AppDbContext> options, TimeProvider c
         var now = clock.GetUtcNow().UtcDateTime;
 
         // Handlers may pre-set CreatedAtUtc (e.g. a message and its conversation share one timestamp).
-        foreach (var entry in ChangeTracker.Entries<IHasCreatedAt>())
+        foreach (var entry in ChangeTracker.Entries<HasCreatedAt>())
+            if (entry.State == EntityState.Added && entry.Entity.CreatedAtUtc == default)
+                entry.Entity.CreatedAtUtc = now;
+
+        foreach (var entry in ChangeTracker.Entries<MiddleBaseEntity>())
             if (entry.State == EntityState.Added && entry.Entity.CreatedAtUtc == default)
                 entry.Entity.CreatedAtUtc = now;
 

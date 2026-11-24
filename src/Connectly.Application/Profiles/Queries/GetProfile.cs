@@ -29,6 +29,6 @@ public class GetProfileQueryHandler(IApplicationDbContext db, ICurrentUser curre
                 p.Id == me,
                 db.Follows.Any(f => f.FollowerId == me && f.FolloweeId == p.Id)))
             .FirstOrDefaultAsync(ct)
-            ?? throw new NotFoundException(nameof(Domain.Entities.UserProfile), request.UserId);
+            ?? throw new NotFoundException(nameof(Domain.Entities.UserProfiles.UserProfile), request.UserId);
     }
 }
