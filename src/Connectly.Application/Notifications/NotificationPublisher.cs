@@ -1,6 +1,6 @@
+using Connectly.Application.Common.Dtos;
 using Connectly.Application.Common.Interfaces;
-using Connectly.Application.Common.Models;
-using Connectly.Application.Notifications.Models;
+using Connectly.Application.Notifications.Dtos;
 using Connectly.Domain.Entities.Notifications;
 using Connectly.Domain.Entities.Notifications.Enums;
 using Microsoft.EntityFrameworkCore;

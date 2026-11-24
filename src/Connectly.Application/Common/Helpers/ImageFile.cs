@@ -1,4 +1,4 @@
-using Connectly.Application.Common.Models;
+using Connectly.Application.Common.Dtos;
 using FluentValidation;
 
 namespace Connectly.Application.Common.Helpers;

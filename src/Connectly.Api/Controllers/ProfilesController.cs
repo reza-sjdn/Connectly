@@ -1,6 +1,11 @@
-using Connectly.Application.Common.Models;
-using Connectly.Application.Profiles.Commands;
-using Connectly.Application.Profiles.Queries;
+using Connectly.Application.Common.Dtos;
+using Connectly.Application.Profiles.Commands.UpdateMyProfile;
+using Connectly.Application.Profiles.Commands.UpdateProfileImage;
+using Connectly.Application.Profiles.Dtos;
+using Connectly.Application.Profiles.Enums;
+using Connectly.Application.Profiles.Queries.GetMyProfile;
+using Connectly.Application.Profiles.Queries.GetProfile;
+using Connectly.Application.Profiles.Queries.GetUserSuggestions;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

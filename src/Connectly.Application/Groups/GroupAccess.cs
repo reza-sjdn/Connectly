@@ -1,5 +1,6 @@
 using Connectly.Application.Common.Exceptions;
 using Connectly.Application.Common.Interfaces;
+using Connectly.Application.Groups.Enums;
 using Connectly.Application.Groups.Models;
 using Connectly.Domain.Entities.Groups;
 using Connectly.Domain.Entities.Groups.Enums;

@@ -1,8 +1,8 @@
-using Connectly.Application.Chat.Models;
+using Connectly.Application.Chat.Dtos;
 using Connectly.Application.Common.Interfaces;
 using Connectly.Application.Groups.Models;
-using Connectly.Application.Notifications.Models;
-using Connectly.Application.Posts.Models;
+using Connectly.Application.Notifications.Dtos;
+using Connectly.Application.Posts.Dtos;
 using Microsoft.AspNetCore.SignalR;
 
 namespace Connectly.Api.Realtime;

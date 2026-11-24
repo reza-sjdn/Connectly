@@ -1,7 +1,10 @@
-using Connectly.Application.Common.Models;
-using Connectly.Application.Stories.Commands;
-using Connectly.Application.Stories.Models;
-using Connectly.Application.Stories.Queries;
+using Connectly.Application.Common.Dtos;
+using Connectly.Application.Stories.Commands.CreateStory;
+using Connectly.Application.Stories.Commands.DeleteStory;
+using Connectly.Application.Stories.Commands.MarkStoryViewed;
+using Connectly.Application.Stories.Dtos;
+using Connectly.Application.Stories.Queries.GetStoryFeed;
+using Connectly.Application.Stories.Queries.GetStoryViewers;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

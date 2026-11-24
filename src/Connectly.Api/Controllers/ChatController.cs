@@ -1,7 +1,10 @@
-using Connectly.Application.Chat.Commands;
-using Connectly.Application.Chat.Models;
-using Connectly.Application.Chat.Queries;
-using Connectly.Application.Common.Models;
+using Connectly.Application.Chat.Commands.MarkConversationRead;
+using Connectly.Application.Chat.Commands.SendMessage;
+using Connectly.Application.Chat.Dtos;
+using Connectly.Application.Chat.Queries.GetConversations;
+using Connectly.Application.Chat.Queries.GetMessagesWith;
+using Connectly.Application.Chat.Queries.GetUnreadMessageCount;
+using Connectly.Application.Common.Dtos;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

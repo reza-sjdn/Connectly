@@ -1,7 +1,9 @@
-using Connectly.Application.Common.Models;
-using Connectly.Application.Notifications.Commands;
-using Connectly.Application.Notifications.Models;
-using Connectly.Application.Notifications.Queries;
+using Connectly.Application.Common.Dtos;
+using Connectly.Application.Notifications.Commands.MarkAllNotificationsRead;
+using Connectly.Application.Notifications.Commands.MarkNotificationRead;
+using Connectly.Application.Notifications.Dtos;
+using Connectly.Application.Notifications.Queries.GetNotifications;
+using Connectly.Application.Notifications.Queries.GetUnreadNotificationCount;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

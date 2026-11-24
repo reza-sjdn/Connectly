@@ -1,4 +1,7 @@
-using Connectly.Application.Auth.Commands;
+using Connectly.Application.Auth.Commands.Login;
+using Connectly.Application.Auth.Commands.Logout;
+using Connectly.Application.Auth.Commands.RefreshToken;
+using Connectly.Application.Auth.Commands.Register;
 using Connectly.Application.Auth.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

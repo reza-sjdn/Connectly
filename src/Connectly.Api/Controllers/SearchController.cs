@@ -1,4 +1,5 @@
-using Connectly.Application.Search;
+using Connectly.Application.Search.Dtos;
+using Connectly.Application.Search.Search;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

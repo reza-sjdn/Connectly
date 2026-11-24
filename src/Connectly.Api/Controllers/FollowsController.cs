@@ -1,6 +1,8 @@
-using Connectly.Application.Common.Models;
-using Connectly.Application.Follows.Commands;
-using Connectly.Application.Follows.Queries;
+using Connectly.Application.Common.Dtos;
+using Connectly.Application.Follows.Commands.FollowUser;
+using Connectly.Application.Follows.Commands.UnfollowUser;
+using Connectly.Application.Follows.Enums;
+using Connectly.Application.Follows.Queries.GetFollowList;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
